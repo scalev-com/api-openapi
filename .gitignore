@@ -1,0 +1,3 @@
+node_modules/
+dist/
+specs/v2/openapi.json

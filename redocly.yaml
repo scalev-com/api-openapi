@@ -1,0 +1,11 @@
+apis:
+  nexus@v2:
+    root: ./specs/v2/openapi.yaml
+
+extends:
+  - recommended
+
+rules:
+  info-license-strict: off
+  no-ambiguous-paths: off
+  no-unused-components: off
