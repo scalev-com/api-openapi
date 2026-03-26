@@ -52312,7 +52312,7 @@ paths:
             - email_broadcast_template:create
       summary: Create an email broadcast template
       tags:
-        - SES - Email Broadcast Templates
+        - Email Broadcasts
     get:
       callbacks: {}
       description: Retrieves a paginated list of email broadcast templates for the authenticated business with optional search filtering.
@@ -52482,7 +52482,7 @@ paths:
             - email_broadcast_template:read
       summary: List email broadcast templates
       tags:
-        - SES - Email Broadcast Templates
+        - Email Broadcasts
   /v2/ses/email-broadcast-templates/{id}:
     get:
       callbacks: {}
@@ -52619,7 +52619,7 @@ paths:
             - email_broadcast_template:read
       summary: Get an email broadcast template
       tags:
-        - SES - Email Broadcast Templates
+        - Email Broadcasts
     put:
       callbacks: {}
       description: Updates an existing email broadcast template for the authenticated business.
@@ -52784,7 +52784,7 @@ paths:
             - email_broadcast_template:update
       summary: Update an email broadcast template
       tags:
-        - SES - Email Broadcast Templates
+        - Email Broadcasts
     delete:
       callbacks: {}
       description: Deletes an email broadcast template for the authenticated business. This is a hard delete.
@@ -52882,7 +52882,7 @@ paths:
             - email_broadcast_template:delete
       summary: Delete an email broadcast template
       tags:
-        - SES - Email Broadcast Templates
+        - Email Broadcasts
   /v2/ses/email-broadcasts:
     post:
       callbacks: {}
@@ -53112,7 +53112,7 @@ paths:
             - email_broadcast:create
       summary: Create an email broadcast
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
     get:
       callbacks: {}
       description: Retrieves a paginated list of email broadcasts for the authenticated business with optional filtering by search term and status. Uses cursor-based pagination sorted by ID in descending order.
@@ -53339,7 +53339,7 @@ paths:
             - email_broadcast:read
       summary: List email broadcasts
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
   /v2/ses/email-broadcasts/recipient-count:
     post:
       callbacks: {}
@@ -53436,7 +53436,7 @@ paths:
             - email_broadcast:read
       summary: Count email broadcast recipients
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
   /v2/ses/email-broadcasts/render-preview:
     post:
       callbacks: {}
@@ -53539,7 +53539,7 @@ paths:
             - email_broadcast:read
       summary: Render email broadcast preview
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
   /v2/ses/email-broadcasts/{email_broadcast_id}/recipients:
     get:
       callbacks: {}
@@ -53732,7 +53732,7 @@ paths:
             - email_broadcast_recipient:read
       summary: List email broadcast recipients
       tags:
-        - SES - Email Broadcast Recipients
+        - Email Broadcasts
   /v2/ses/email-broadcasts/{id}:
     get:
       callbacks: {}
@@ -53914,7 +53914,7 @@ paths:
             - email_broadcast:read
       summary: Get an email broadcast
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
     put:
       callbacks: {}
       description: Updates an existing email broadcast for the authenticated business. Sender email may be revalidated depending on the new status and sender address.
@@ -54148,7 +54148,7 @@ paths:
             - email_broadcast:update
       summary: Update an email broadcast
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
     delete:
       callbacks: {}
       description: Soft-deletes an email broadcast by marking it as inactive. The record remains in the database but is excluded from active queries.
@@ -54246,7 +54246,7 @@ paths:
             - email_broadcast:delete
       summary: Delete (soft-delete) an email broadcast
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
   /v2/ses/email-broadcasts/{id}/schedule:
     post:
       callbacks: {}
@@ -54443,7 +54443,7 @@ paths:
             - email_broadcast:send
       summary: Schedule an email broadcast
       tags:
-        - SES - Email Broadcasts
+        - Email Broadcasts
   /v2/ses/email-identities:
     post:
       callbacks: {}
@@ -54590,7 +54590,7 @@ paths:
             - email_broadcast_identity:create
       summary: Create an email identity
       tags:
-        - SES - Email Identities
+        - Email Broadcasts
     get:
       callbacks: {}
       description: Retrieves a paginated list of email identities for the authenticated business with optional search filtering.
@@ -54754,7 +54754,7 @@ paths:
             - email_broadcast_identity:read
       summary: List email identities
       tags:
-        - SES - Email Identities
+        - Email Broadcasts
   /v2/ses/email-identities/{id}:
     get:
       callbacks: {}
@@ -54885,7 +54885,7 @@ paths:
             - email_broadcast_identity:read
       summary: Get an email identity
       tags:
-        - SES - Email Identities
+        - Email Broadcasts
     put:
       callbacks: {}
       description: Updates an existing email identity for the authenticated business.
@@ -55038,7 +55038,7 @@ paths:
             - email_broadcast_identity:update
       summary: Update an email identity
       tags:
-        - SES - Email Identities
+        - Email Broadcasts
     delete:
       callbacks: {}
       description: Deletes an email identity for the authenticated business. This is a hard delete.
@@ -55136,7 +55136,7 @@ paths:
             - email_broadcast_identity:delete
       summary: Delete an email identity
       tags:
-        - SES - Email Identities
+        - Email Broadcasts
   /v2/ses/email-identities/{id}/check:
     get:
       callbacks: {}
@@ -55248,7 +55248,7 @@ paths:
             - email_broadcast_identity:read
       summary: Check email identity status
       tags:
-        - SES - Email Identities
+        - Email Broadcasts
   /v2/ses/statistics:
     get:
       callbacks: {}
@@ -55390,7 +55390,7 @@ paths:
             - email_broadcast:read
       summary: Get email broadcast dashboard metrics
       tags:
-        - SES - Email Broadcast Dashboard
+        - Email Broadcasts
   /v2/ses/tenants:
     post:
       callbacks: {}
@@ -55494,7 +55494,7 @@ paths:
             - email_broadcast_identity:create
       summary: Create SES tenant for business
       tags:
-        - SES - Tenant
+        - Email Broadcasts
   /v2/shipping-costs:
     post:
       callbacks: {}
