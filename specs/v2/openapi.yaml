@@ -20769,136 +20769,6 @@ paths:
       summary: Duplicate a bundle
       tags:
         - Bundles
-  /v2/businesses/enabled-epayments:
-    get:
-      callbacks: {}
-      description: Fetches the list of enabled e-payment methods for a specified business.
-      operationId: ScalevApiWeb.BusinessGlobalController.get_enabled_payments_enabled_epayments
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                properties:
-                  code:
-                    example: 200
-                    type: integer
-                  data:
-                    properties:
-                      payment_methods:
-                        description: List of enabled payment methods
-                        items:
-                          description: Order e-payment method
-                          enum:
-                            - va
-                            - qris
-                            - card
-                            - invoice
-                            - alfamart
-                            - indomaret
-                            - ovo
-                            - dana
-                            - shopeepay
-                            - linkaja
-                            - gopay
-                          type: string
-                        type: array
-                      vas:
-                        description: List of enabled bank virtual accounts
-                        items:
-                          description: Xendit VA bank code
-                          enum:
-                            - BCA
-                            - BNI
-                            - BRI
-                            - MANDIRI
-                            - PERMATA
-                            - BSI
-                            - BJB
-                            - CIMB
-                            - SAHABAT_SAMPOERNA
-                            - ARTAJASA
-                          type: string
-                        type: array
-                    title: EnabledEpayments
-                    type: object
-                  status:
-                    example: Success
-                    type: string
-                type: object
-          description: Enabled E-Payments
-        "400":
-          content:
-            application/json:
-              schema:
-                properties:
-                  code:
-                    example: 400
-                    type: integer
-                  error:
-                    oneOf:
-                      - type: string
-                      - additionalProperties: true
-                        description: Validation errors from changeset
-                        type: object
-                  status:
-                    example: Bad Request
-                    type: string
-                title: BadRequestError
-                type: object
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                properties:
-                  code:
-                    example: 401
-                    type: integer
-                  status:
-                    example: Unauthorized
-                    type: string
-                title: UnauthorizedError
-                type: object
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                properties:
-                  code:
-                    example: 403
-                    type: integer
-                  status:
-                    example: Forbidden
-                    type: string
-                title: ForbiddenError
-                type: object
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                properties:
-                  code:
-                    example: 404
-                    type: integer
-                  error:
-                    type: string
-                  status:
-                    example: Not Found
-                    type: string
-                title: NotFoundError
-                type: object
-          description: Not Found
-      security:
-        - bearerApiKey: []
-          oauth2:
-            - order:statistics:read
-      summary: Get enabled e-payments for a business
-      tags:
-        - Businesses
   /v2/businesses/enabled-payments:
     get:
       callbacks: {}
@@ -23811,7 +23681,7 @@ paths:
       summary: List Locations
       tags:
         - Locations
-  /v2/order:
+  /v2/orders:
     post:
       callbacks: {}
       description: Create a new order with the provided details.
@@ -26619,7 +26489,7 @@ paths:
       summary: List orders with pagination
       tags:
         - Orders
-  /v2/order/cancel-awb:
+  /v2/orders/cancel-awb:
     post:
       callbacks: {}
       description: Cancel Air Waybill for multiple orders.
@@ -26711,7 +26581,7 @@ paths:
       summary: Cancel AWB for orders
       tags:
         - Orders
-  /v2/order/change-status:
+  /v2/orders/change-status:
     post:
       callbacks: {}
       description: Change the status of multiple orders.
@@ -26897,7 +26767,7 @@ paths:
       summary: Change order status
       tags:
         - Orders
-  /v2/order/delete:
+  /v2/orders/delete:
     post:
       callbacks: {}
       description: Delete multiple orders by IDs.
@@ -26978,7 +26848,7 @@ paths:
       summary: Delete orders
       tags:
         - Orders
-  /v2/order/generate-awb:
+  /v2/orders/generate-awb:
     post:
       callbacks: {}
       description: Generate Air Waybill for multiple orders.
@@ -27070,7 +26940,7 @@ paths:
       summary: Generate AWB for orders
       tags:
         - Orders
-  /v2/order/mark-not-spam:
+  /v2/orders/mark-not-spam:
     post:
       callbacks: {}
       description: Mark multiple orders as not spam.
@@ -27187,7 +27057,7 @@ paths:
       summary: Mark orders as not spam
       tags:
         - Orders
-  /v2/order/pg-reference-id/{pg_reference_id}:
+  /v2/orders/pg-reference-id/{pg_reference_id}:
     get:
       callbacks: {}
       description: Retrieve order details using payment gateway reference ID.
@@ -27290,7 +27160,7 @@ paths:
       summary: Get order by payment gateway reference ID
       tags:
         - Orders
-  /v2/order/pg-reference-ids:
+  /v2/orders/pg-reference-ids:
     get:
       callbacks: {}
       description: Retrieve orders using multiple payment gateway reference IDs.
@@ -27370,7 +27240,7 @@ paths:
       summary: Get orders by multiple payment gateway reference IDs
       tags:
         - Orders
-  /v2/order/statistics:
+  /v2/orders/statistics:
     get:
       callbacks: {}
       description: Retrieves descriptive statistics about orders, such as total orders, total revenue, and other aggregated data. Can be filtered using the same parameters as the orders list endpoint.
@@ -27588,7 +27458,7 @@ paths:
       summary: Get order statistics
       tags:
         - Orders
-  /v2/order/tags:
+  /v2/orders/tags:
     get:
       callbacks: {}
       description: Retrieve a list of tags associated with orders.
@@ -27692,7 +27562,7 @@ paths:
       summary: List order tags
       tags:
         - Orders
-  /v2/order/upload:
+  /v2/orders/upload:
     post:
       callbacks: {}
       description: "Upload orders from CSV file. (1) Archive mode. Choose this mode if you want to import old data from another platform you've been using. You can directly create products that you made on your previous platform. Orders that are created will immediately have 'Completed' status. Download template for Archive mode here: https://app.scalev.id/example/template_archive.csv. (2) Regular mode. Choose this mode if you want to enter current data that you wish to input in bulk, not one by one via order input. It will take inventory into account if your products have inventory enabled. Successfully created orders will have 'Created', 'Pending', or 'Confirmed' status, depending on the completeness of the data. Download template for Regular mode here: https://app.scalev.id/example/template_regular.csv."
@@ -27825,7 +27695,7 @@ paths:
       summary: Upload orders from CSV file
       tags:
         - Orders
-  /v2/order/upload-change-status:
+  /v2/orders/upload-change-status:
     post:
       callbacks: {}
       description: "Upload a CSV file to change status of multiple orders. Template file can be downloaded from the link here: https://app.scalev.id/example/update_status_template.csv. (1) Leave blank the 'shipment_receipt' field if you don't want to change the receipt/tracking number. Note: this will not change receipts/tracking numbers that are automatically generated by Scalev through the 'Request Pickup' menu. (2) Leave blank the 'day', 'month', and 'year' fields if you want to use the time of upload."
@@ -27937,7 +27807,7 @@ paths:
       summary: Upload CSV to change order status
       tags:
         - Orders
-  /v2/order/upload-receipt:
+  /v2/orders/upload-receipt:
     post:
       callbacks: {}
       description: "Upload file to update shipment receipts (tracking IDs) for multiple orders. Template file can be downloaded from the link here: https://app.scalev.id/example/receipt_template.csv."
@@ -28027,7 +27897,7 @@ paths:
       summary: Upload CSV to update shipment receipts
       tags:
         - Orders
-  /v2/order/utm-campaigns:
+  /v2/orders/utm-campaigns:
     get:
       callbacks: {}
       description: Retrieve a list of unique UTM campaign values from orders.
@@ -28136,7 +28006,7 @@ paths:
       summary: List unique UTM campaigns
       tags:
         - Orders
-  /v2/order/utm-contents:
+  /v2/orders/utm-contents:
     get:
       callbacks: {}
       description: Retrieve a list of unique UTM content values from orders.
@@ -28245,7 +28115,7 @@ paths:
       summary: List unique UTM contents
       tags:
         - Orders
-  /v2/order/utm-mediums:
+  /v2/orders/utm-mediums:
     get:
       callbacks: {}
       description: Retrieve a list of unique UTM medium values from orders.
@@ -28355,7 +28225,7 @@ paths:
       summary: List unique UTM mediums
       tags:
         - Orders
-  /v2/order/utm-sources:
+  /v2/orders/utm-sources:
     get:
       callbacks: {}
       description: Retrieve a list of unique UTM source values from orders.
@@ -28464,7 +28334,7 @@ paths:
       summary: List unique UTM sources
       tags:
         - Orders
-  /v2/order/utm-terms:
+  /v2/orders/utm-terms:
     get:
       callbacks: {}
       description: Retrieve a list of unique UTM term values from orders.
@@ -28573,7 +28443,7 @@ paths:
       summary: List unique UTM terms
       tags:
         - Orders
-  /v2/order/{id}:
+  /v2/orders/{id}:
     get:
       callbacks: {}
       description: Retrieve detailed information about a specific order.
@@ -31751,7 +31621,7 @@ paths:
       summary: Update an existing order
       tags:
         - Orders
-  /v2/order/{id}/actions:
+  /v2/orders/{id}/actions:
     get:
       callbacks: {}
       description: Retrieve flags to determine available actions for an order.
@@ -31862,7 +31732,7 @@ paths:
       summary: Get available actions for order
       tags:
         - Orders
-  /v2/order/{id}/chat/{chat_id}:
+  /v2/orders/{id}/chat/{chat_id}:
     get:
       callbacks: {}
       description: Retrieve a specific chat text message.
@@ -32003,7 +31873,7 @@ paths:
       summary: Get specific chat text
       tags:
         - Orders
-  /v2/order/{id}/chats:
+  /v2/orders/{id}/chats:
     get:
       callbacks: {}
       description: Retrieve chat text messages associated with an order.
@@ -32189,7 +32059,7 @@ paths:
       summary: Get chat text for order
       tags:
         - Orders
-  /v2/order/{id}/check-payment:
+  /v2/orders/{id}/check-payment:
     post:
       callbacks: {}
       description: Check the payment status of an order.
@@ -33702,7 +33572,7 @@ paths:
       summary: Check order payment status
       tags:
         - Orders
-  /v2/order/{id}/check-settlement:
+  /v2/orders/{id}/check-settlement:
     post:
       callbacks: {}
       description: Check the settlement status of an order.
@@ -35215,7 +35085,7 @@ paths:
       summary: Check order settlement status
       tags:
         - Orders
-  /v2/order/{id}/customer:
+  /v2/orders/{id}/customer:
     patch:
       callbacks: {}
       description: Update the customer associated with an order.
@@ -36741,7 +36611,7 @@ paths:
       summary: Update order customer
       tags:
         - Orders
-  /v2/order/{id}/duplicate:
+  /v2/orders/{id}/duplicate:
     post:
       callbacks: {}
       description: Create a duplicate of an order and cancel the original.
@@ -38309,7 +38179,7 @@ paths:
       summary: Duplicate and cancel order
       tags:
         - Orders
-  /v2/order/{id}/emails:
+  /v2/orders/{id}/emails:
     get:
       callbacks: {}
       description: Get list of emails sent for an order.
@@ -38456,7 +38326,7 @@ paths:
       summary: List order emails
       tags:
         - Orders
-  /v2/order/{id}/message-history:
+  /v2/orders/{id}/message-history:
     post:
       callbacks: {}
       description: Add a new message to order message history.
@@ -38752,7 +38622,7 @@ paths:
       summary: Show message history
       tags:
         - Orders
-  /v2/order/{id}/payment:
+  /v2/orders/{id}/payment:
     post:
       callbacks: {}
       description: Create a payment request / intent for an order.
@@ -38852,7 +38722,7 @@ paths:
       summary: Create payment for order
       tags:
         - Orders
-  /v2/order/{id}/send-lms-access:
+  /v2/orders/{id}/send-lms-access:
     post:
       callbacks: {}
       description: Send LMS access email to customer.
@@ -38950,7 +38820,7 @@ paths:
       summary: Send LMS access
       tags:
         - Orders
-  /v2/order/{id}/send-product-digital:
+  /v2/orders/{id}/send-product-digital:
     post:
       callbacks: {}
       description: Send email containing links to download digital products to customer.
@@ -39014,7 +38884,7 @@ paths:
       summary: Send digital product access
       tags:
         - Orders
-  /v2/order/{id}/shipment:
+  /v2/orders/{id}/shipment:
     patch:
       callbacks: {}
       description: Update shipment-related data for an order.
@@ -40565,7 +40435,7 @@ paths:
       summary: Update shipment-related data
       tags:
         - Orders
-  /v2/order/{id}/shipment-receipt:
+  /v2/orders/{id}/shipment-receipt:
     patch:
       callbacks: {}
       description: Update shipment receipt / tracking ID for an order.
@@ -40688,7 +40558,7 @@ paths:
       summary: Update shipment receipt information
       tags:
         - Orders
-  /v2/order/{id}/shipment-status-history:
+  /v2/orders/{id}/shipment-status-history:
     post:
       callbacks: {}
       description: Create a new shipment status history entry for an order.
@@ -42205,7 +42075,7 @@ paths:
       summary: Create shipment status history
       tags:
         - Orders
-  /v2/order/{id}/trigger-purchase:
+  /v2/orders/{id}/trigger-purchase:
     post:
       callbacks: {}
       description: Trigger purchase event for analytics and tracking.
@@ -42318,7 +42188,7 @@ paths:
       summary: Trigger purchase event
       tags:
         - Orders
-  /v2/order/{id}/update-tags:
+  /v2/orders/{id}/update-tags:
     post:
       callbacks: {}
       description: Update tags for an order.
