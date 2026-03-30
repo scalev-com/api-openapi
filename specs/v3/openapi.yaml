@@ -51,7 +51,7 @@ paths:
       summary: List storefront products
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "404":
           $ref: "#/components/responses/NotFoundResponse"
 
@@ -94,7 +94,7 @@ paths:
       summary: List storefront categories
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "404":
           $ref: "#/components/responses/NotFoundResponse"
 
@@ -109,7 +109,7 @@ paths:
       summary: Get storefront variant pricing
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "404":
           $ref: "#/components/responses/NotFoundResponse"
 
@@ -220,7 +220,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
 
@@ -271,7 +271,7 @@ paths:
     post:
       tags: [Customer Auth]
       operationId: sendCustomerOtp
-      summary: Send a customer login OTP
+      summary: Send a customer login OTP or return direct login tokens
       parameters:
         - $ref: "#/components/parameters/RequiredOriginHeader"
       requestBody:
@@ -279,6 +279,8 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/SuccessResponse"
+        "204":
+          $ref: "#/components/responses/NoContentResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -326,8 +328,8 @@ paths:
       requestBody:
         $ref: "#/components/requestBodies/JwtBlacklistRequestBody"
       responses:
-        "200":
-          $ref: "#/components/responses/SuccessResponse"
+        "204":
+          $ref: "#/components/responses/NoContentResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
 
@@ -341,8 +343,8 @@ paths:
       requestBody:
         $ref: "#/components/requestBodies/ForgetPasswordRequestBody"
       responses:
-        "200":
-          $ref: "#/components/responses/SuccessResponse"
+        "204":
+          $ref: "#/components/responses/NoContentResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
 
@@ -356,8 +358,8 @@ paths:
       requestBody:
         $ref: "#/components/requestBodies/SavePasswordRequestBody"
       responses:
-        "200":
-          $ref: "#/components/responses/SuccessResponse"
+        "204":
+          $ref: "#/components/responses/NoContentResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "404":
@@ -492,7 +494,7 @@ paths:
         - $ref: "#/components/parameters/RequiredOriginHeader"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
 
@@ -524,7 +526,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
 
@@ -575,7 +577,7 @@ paths:
         - $ref: "#/components/parameters/RequiredOriginHeader"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
 
@@ -608,7 +610,7 @@ paths:
         - $ref: "#/components/parameters/RequiredOriginHeader"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
 
@@ -678,7 +680,7 @@ paths:
         - bearerAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "404":
@@ -713,7 +715,7 @@ paths:
         - bearerAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "404":
@@ -817,7 +819,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -835,7 +837,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -855,7 +857,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -875,7 +877,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -893,7 +895,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -945,7 +947,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -965,7 +967,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -985,7 +987,7 @@ paths:
         $ref: "#/components/requestBodies/GenericJsonRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -1005,7 +1007,7 @@ paths:
         $ref: "#/components/requestBodies/GenericUploadRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -1025,7 +1027,7 @@ paths:
         $ref: "#/components/requestBodies/GenericUploadRequestBody"
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "401":
@@ -1103,7 +1105,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1119,7 +1121,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1135,7 +1137,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1151,7 +1153,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1167,7 +1169,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1183,7 +1185,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/PaginatedCollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1219,7 +1221,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1338,7 +1340,7 @@ paths:
         - apiKeyAuth: []
       responses:
         "200":
-          $ref: "#/components/responses/SuccessResponse"
+          $ref: "#/components/responses/CollectionResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1629,8 +1631,8 @@ paths:
         - bearerAuth: []
         - apiKeyAuth: []
       responses:
-        "200":
-          $ref: "#/components/responses/SuccessResponse"
+        "204":
+          $ref: "#/components/responses/NoContentResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1649,8 +1651,8 @@ paths:
         - bearerAuth: []
         - apiKeyAuth: []
       responses:
-        "200":
-          $ref: "#/components/responses/SuccessResponse"
+        "204":
+          $ref: "#/components/responses/NoContentResponse"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
         "403":
@@ -1834,13 +1836,27 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ApiSuccessResponse"
+            $ref: "#/components/schemas/RawObjectResponseBody"
     CreatedResponse:
       description: Created
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ApiSuccessResponse"
+            $ref: "#/components/schemas/RawObjectResponseBody"
+    CollectionResponse:
+      description: Success collection response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CollectionResponseBody"
+    PaginatedCollectionResponse:
+      description: Success paginated collection response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/PaginatedCollectionResponseBody"
+    NoContentResponse:
+      description: Success with no response body
     BadRequestResponse:
       description: Bad Request
       content:
@@ -1878,40 +1894,63 @@ components:
         - type: string
         - type: number
         - type: boolean
-    ApiSuccessResponse:
+    RawObjectResponseBody:
+      type: object
+      additionalProperties: true
+      description: Raw single-resource success payload for v3.
+    CollectionResponseBody:
       type: object
       required:
-        - code
-        - status
+        - data
+        - is_paginated
       properties:
-        code:
-          type: integer
-          example: 200
-        status:
-          type: string
-          example: Success
         data:
-          $ref: "#/components/schemas/FlexibleValue"
-        message:
-          type: string
-          nullable: true
+          type: array
+          items: {}
+        is_paginated:
+          type: boolean
+          enum: [false]
+          example: false
+      additionalProperties: false
+      description: Non-paginated list payload for v3.
+    PaginatedCollectionResponseBody:
+      type: object
+      required:
+        - data
+        - is_paginated
+      properties:
+        data:
+          type: array
+          items: {}
+        is_paginated:
+          type: boolean
+          enum: [true]
+          example: true
+        has_next:
+          type: boolean
+        last_id:
+          oneOf:
+            - type: integer
+            - type: string
+        page_size:
+          type: integer
+        page:
+          type: integer
+      additionalProperties: true
+      description: Paginated list payload for v3.
     ApiErrorResponse:
       type: object
-      required:
-        - code
-        - status
       properties:
-        code:
-          type: integer
-          example: 400
-        status:
-          type: string
-          example: Bad Request
         error:
           $ref: "#/components/schemas/FlexibleValue"
+        error_code:
+          type: string
         message:
           type: string
-          nullable: true
+          description: Error-only human-readable detail.
+        errors:
+          $ref: "#/components/schemas/FlexibleValue"
+      additionalProperties: false
     GenericJsonObject:
       type: object
       additionalProperties: true
